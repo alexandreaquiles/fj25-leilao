@@ -76,7 +76,9 @@ public class LanceTest extends JPATest {
 		Lance lance = new Lance();
 		lance.setValor(new BigDecimal(1000));
 		lance.setVencedor(false);
-		lance.setDataHora(new GregorianCalendar(2016, Calendar.MAY, 9));
+		Calendar dataHoraAtual = Calendar.getInstance();
+		dataHoraAtual.add(Calendar.HOUR, 1);
+		lance.setDataHora(dataHoraAtual);
 		return lance;
 	}
 	
