@@ -29,11 +29,15 @@ alter table Item
     foreign key (leilao_id) 
     references Leilao (id);
 
-
-create table Categoria (
+create table CategoriasDoItem (
     Item_id integer not null,
     categorias varchar(255)
 ) ENGINE=InnoDB;
+
+alter table CategoriasDoItem 
+    add constraint FK_CategoriasDoItem_Item 
+    foreign key (Item_id) 
+    references Item (id);
 
 create table Usuario (
     email varchar(255) not null,
@@ -70,14 +74,23 @@ alter table Lance
 
 create table FormaDePagamento (
     id integer not null auto_increment,
-    usuario varchar(255),
     primary key (id)
 ) ENGINE=InnoDB;
 
-alter table FormaDePagamento 
-    add constraint FK_FormaDePagamento_Usuario
-    foreign key (usuario) 
+create table Usuario_FormaDePagamento (
+	formasDePagamento_id integer,
+    usuario_email varchar(255)
+) ENGINE=InnoDB;
+
+alter table Usuario_FormaDePagamento 
+    add constraint FK_Usuario_FormaDePagamento_Usuario
+    foreign key (usuario_email) 
     references Usuario (email);
+
+alter table Usuario_FormaDePagamento 
+    add constraint FK_Usuario_FormaDePagamento_FormaDePagamento
+    foreign key (formasDePagamento_id) 
+    references FormaDePagamento (id);
 
 create table CartaoDeCredito (
     anoExpiracao integer,
