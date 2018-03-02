@@ -4,7 +4,7 @@
 
 1. Abra um terminal
 2. Vá até o diretório do workspace do Eclipse digitando: `cd workspace`
-3. Baixe o projeto Leilão para sua máquina digitando: `git clone git@github.com:alexandreaquiles/fj25-leilao.git`
+3. Baixe o projeto Leilão para sua máquina digitando: `git clone https://github.com/alexandreaquiles/fj25-leilao.git`
 4. Vá até o diretório do projeto com `cd fj25-leilao`.
 5. Execute um script de BD com o comando: `mysql -u root < leilao.sql`
 6. Abra o Eclipse. Vá em *File > Import... > General > Existing Projects into Workspace*. Em *Select root directory*, clique em *Browse..*. Selecione o projeto `fj25-leilao`. Certifique-se que *Copy projects into workspace* está **desabilitado**.
