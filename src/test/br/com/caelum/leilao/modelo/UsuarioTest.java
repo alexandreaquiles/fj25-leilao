@@ -89,11 +89,8 @@ public class UsuarioTest extends JPATest {
 		List<FormaDePagamento> formasAdicionadas = manager.createQuery("select u.formasDePagamento from Usuario u where u = :usuario").setParameter("usuario", usuario).getResultList();
 		Assert.assertEquals(2, formasAdicionadas.size());
 		
-		FormaDePagamento formaAdicionada1 = formasAdicionadas.get(0);
-		Assert.assertTrue(formaAdicionada1 instanceof CartaoDeCredito);
-		
-		FormaDePagamento formaAdicionada2 = formasAdicionadas.get(1);
-		Assert.assertTrue(formaAdicionada2 instanceof ContaBancaria);
+		Assert.assertTrue(formasAdicionadas.stream().anyMatch(forma -> forma instanceof CartaoDeCredito));
+		Assert.assertTrue(formasAdicionadas.stream().anyMatch(forma -> forma instanceof ContaBancaria));
 		
 	}
 
